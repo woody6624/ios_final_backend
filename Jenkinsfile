@@ -35,6 +35,7 @@ pipeline {
         stage('Build And Deploy') {
             steps {
                 script {
+                    def jarPath = sh(returnStdout: true, script: 'echo `pwd`').trim() + '/build/libs/ios_project_final-0.0.1-SNAPSHOT.jar'
                     sh """
                     java -jar \\
                     -DAWS_ACCESS_KEY=\${AWS_ACCESS_KEY} \\
@@ -42,11 +43,10 @@ pipeline {
                     -DAWS_REGION=\${AWS_REGION} \\
                     -DAWS_STACK_AUTO=\${AWS_STACK_AUTO} \\
                     -DAWS_S3_BUCKET=\${AWS_S3_BUCKET} \\
-                    ./build/libs/ios_project_final-0.0.1-SNAPSHOT.jar
+                    ${jarPath}
                     """
                 }
             }
         }
     }
 }
-
