@@ -5,6 +5,8 @@ import ios_project_final.cheermassage.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
 
@@ -27,6 +29,17 @@ public class UserService {
     }
 
     public UserEntity loginUser(String kakaoId, String userPassword) {
-        return userRepository.findByKakaoIdAndUserPassword(kakaoId, userPassword);
+        Optional<UserEntity> userEntity=userRepository.findById(kakaoId);
+        if(userEntity.isPresent()){
+            if(userEntity.get().getUserPassword().equals(userPassword)){
+                return userEntity.get();
+            }
+            else{
+                return null;
+            }
+        }
+        else{
+            return null;
+        }
     }
 }
