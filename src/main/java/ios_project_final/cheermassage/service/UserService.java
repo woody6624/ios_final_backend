@@ -30,9 +30,11 @@ public class UserService {
 
     public UserEntity loginUser(String kakaoId, String userPassword) {
         Optional<UserEntity> userEntity=userRepository.findById(kakaoId);
+
         if(userEntity.isPresent()){
             if(userEntity.get().getUserPassword().equals(userPassword)){
-                return userEntity.get();
+                UserEntity sendUser=userEntity.get();
+                return sendUser;
             }
             else{
                 return null;
