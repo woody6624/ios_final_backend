@@ -35,7 +35,7 @@ pipeline {
         stage('Build And Deploy') {
             steps {
                 script {
-                    def jarPath = sh(returnStdout: true, script: 'echo `pwd`').trim() + '/build/libs/ios_project_final-0.0.1-SNAPSHOT.jar'
+                    def jarPath = "${WORKSPACE}/build/libs/ios_project_final-0.0.1-SNAPSHOT.jar"
                     sh """
                     java -jar \\
                     -DAWS_ACCESS_KEY=\${AWS_ACCESS_KEY} \\
