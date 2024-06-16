@@ -42,10 +42,11 @@ pipeline {
                     -DAWS_REGION=\${AWS_REGION} \\
                     -DAWS_STACK_AUTO=\${AWS_STACK_AUTO} \\
                     -DAWS_S3_BUCKET=\${AWS_S3_BUCKET} \\
-                    ./build/libs/MainServer-1.0.2-SNAPSHOT.jar
+                    ./build/libs/ios_project_final-0.0.1-SNAPSHOT.jar
                     """
                 }
             }
         }
     }
 }
+
