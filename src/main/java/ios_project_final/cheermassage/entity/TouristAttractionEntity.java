@@ -17,15 +17,11 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class TouristAttractionEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "seoul_gu")
+    private String seoulGu;
 
     @Column(name = "name")
     private String name;
-
-    @Column(name = "country")
-    private String country;
-
     @Column(name = "location")
     private String location;
 

@@ -13,15 +13,12 @@ public class MasterPieceService {
     @Autowired
     private MasterPieceRepository masterpieceRepository;
 
-    //랜덤한 이미지 하나를 제공
+    //랜덤 명화 리턴
     public MasterPieceEntity getRandomMasterpiece() {
         List<MasterPieceEntity> allMasterpieces = masterpieceRepository.findAll();
         if (allMasterpieces.isEmpty()) {
-            // 예외 처리 또는 기본값 반환 등을 할 수 있음
             return null;
         }
-
-        // 랜덤 인덱스 생성
         Random random = new Random();
         int randomIndex = random.nextInt(allMasterpieces.size());
 
@@ -37,7 +34,7 @@ public class MasterPieceService {
             masterpieceRepository.save(updateMasterPieceEntity);
         }
         else{
-            //원래라면 널 에러 처리
+
         }
     }
 }

@@ -39,7 +39,6 @@ public class CheerMessageService {
             cheerMessageEntity.setDdabongCount(currentDdabong + 1);
             cheerMessageRepository.save(cheerMessageEntity);
         } else {
-            // 처리할 메시지가 없는 경우 예외 처리 또는 로깅을 추가할 수 있습니다.
             throw new IllegalArgumentException("Cheer message with id " + messageId + " not found");
         }
     }

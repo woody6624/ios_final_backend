@@ -23,8 +23,7 @@ public class UserService {
         newUser.setUserName(userName);
         newUser.setUserPassword(userPassword);
         newUser.setUserAddress(userAddress);
-        newUser.setDailyVisitCount(0); // Initialize daily visit count
-
+        newUser.setDailyVisitCount(0);
         return userRepository.save(newUser);
     }
 
