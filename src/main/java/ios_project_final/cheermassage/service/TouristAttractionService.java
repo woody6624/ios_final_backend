@@ -21,4 +21,16 @@ public class TouristAttractionService {
         return send;
     }
 
+    public TouristAttractionEntity increaseJoayuCount(String seoul_gu){
+        Optional<TouristAttractionEntity> touristAttractionEntity=touristAttractionRepository.findById(seoul_gu);
+        TouristAttractionEntity send=touristAttractionEntity.get();
+        int tmpCount=send.getJoayuCount()+1;
+        send.setJoayuCount(tmpCount);
+        touristAttractionRepository.save(send);
+        return send;
+    }
+
+
+
+
 }
